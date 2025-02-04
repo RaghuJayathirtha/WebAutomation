@@ -1,0 +1,1 @@
+{"uuid":"faf4b3fe-8412-4b4d-b520-c30e247b4d5e","name":"com.testingAcademy.Demo.close","children":["d7a2a7f1-4ac5-475b-9f02-4d10d9dff212"],"description":"","befores":[],"afters":[{"name":"close","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1736336779909,"stop":1736336780252}],"start":1736336779909,"stop":1736336780252}
