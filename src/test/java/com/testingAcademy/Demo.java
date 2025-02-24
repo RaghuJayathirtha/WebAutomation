@@ -200,6 +200,24 @@ public class Demo {
 
     }
 
+    @Test
+    public void demo8()
+    {
+        driver.get("https://www.flipkart.com/");
+        driver.manage().window().maximize();
+
+        // //*[name()='svg']/*[name()='path' and @stroke="#717478"][1]
+
+        driver.findElement(By.xpath("//input[@type='text']")).sendKeys("AC");
+
+        //SVG example
+        WebElement searchBtn = driver.findElement(By.xpath(
+                "//*[name()='svg']/*[name()='path' and @stroke=\"#717478\"][1]"));
+
+        Actions actions = new Actions(driver);
+        actions.moveToElement(searchBtn).click().perform();
+    }
+
     @AfterMethod
     public void closeBrowser()
     {
