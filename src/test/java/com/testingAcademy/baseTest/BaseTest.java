@@ -1,12 +1,15 @@
 package com.testingAcademy.baseTest;
 
 import com.testingAcademy.driver.DriverManagerTL;
-import com.testingAcademy.utils.ScreenshotUtil;
+import io.qameta.allure.Allure;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+
+import java.io.ByteArrayInputStream;
 
 public class BaseTest {
 
@@ -22,9 +25,12 @@ public class BaseTest {
     @AfterMethod
     protected void down(ITestResult result)
     {
-        if (ITestResult.FAILURE == result.getStatus()) {
-            ScreenshotUtil.captureScreenshot(); // Capture screenshot on failure
-        }
         DriverManagerTL.teardown();
+    }
+
+    public void takeScreenshot(String name, WebDriver driver)
+    {
+        Allure.addAttachment(name,new
+                ByteArrayInputStream(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
     }
 }
